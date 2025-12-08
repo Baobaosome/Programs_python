@@ -1,0 +1,297 @@
+D:\Anaconda3\python.exe D:\Typora\Programs_python\20251205_StressLevelDataset\StressLevel.py 
+数据集形状: (1100, 21)
+
+数据集信息:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1100 entries, 0 to 1099
+Data columns (total 21 columns):
+ #   Column                        Non-Null Count  Dtype
+---  ------                        --------------  -----
+ 0   anxiety_level                 1100 non-null   int64
+ 1   self_esteem                   1100 non-null   int64
+ 2   mental_health_history         1100 non-null   int64
+ 3   depression                    1100 non-null   int64
+ 4   headache                      1100 non-null   int64
+ 5   blood_pressure                1100 non-null   int64
+ 6   sleep_quality                 1100 non-null   int64
+ 7   breathing_problem             1100 non-null   int64
+ 8   noise_level                   1100 non-null   int64
+ 9   living_conditions             1100 non-null   int64
+ 10  safety                        1100 non-null   int64
+ 11  basic_needs                   1100 non-null   int64
+ 12  academic_performance          1100 non-null   int64
+ 13  study_load                    1100 non-null   int64
+ 14  teacher_student_relationship  1100 non-null   int64
+ 15  future_career_concerns        1100 non-null   int64
+ 16  social_support                1100 non-null   int64
+ 17  peer_pressure                 1100 non-null   int64
+ 18  extracurricular_activities    1100 non-null   int64
+ 19  bullying                      1100 non-null   int64
+ 20  stress_level                  1100 non-null   int64
+dtypes: int64(21)
+memory usage: 180.6 KB
+None
+
+前5行数据:
+   anxiety_level  self_esteem  ...  bullying  stress_level
+0             14           20  ...         2             1
+1             15            8  ...         5             2
+2             12           18  ...         2             1
+3             16           12  ...         5             2
+4             16           28  ...         5             1
+
+[5 rows x 21 columns]
+
+描述性统计:
+       anxiety_level  self_esteem  ...     bullying  stress_level
+count    1100.000000  1100.000000  ...  1100.000000   1100.000000
+mean       11.063636    17.777273  ...     2.617273      0.996364
+std         6.117558     8.944599  ...     1.530958      0.821673
+min         0.000000     0.000000  ...     0.000000      0.000000
+25%         6.000000    11.000000  ...     1.000000      0.000000
+50%        11.000000    19.000000  ...     3.000000      1.000000
+75%        16.000000    26.000000  ...     4.000000      2.000000
+max        21.000000    30.000000  ...     5.000000      2.000000
+
+[8 rows x 21 columns]
+
+缺失值统计:
+anxiety_level                   0
+self_esteem                     0
+mental_health_history           0
+depression                      0
+headache                        0
+blood_pressure                  0
+sleep_quality                   0
+breathing_problem               0
+noise_level                     0
+living_conditions               0
+safety                          0
+basic_needs                     0
+academic_performance            0
+study_load                      0
+teacher_student_relationship    0
+future_career_concerns          0
+social_support                  0
+peer_pressure                   0
+extracurricular_activities      0
+bullying                        0
+stress_level                    0
+dtype: int64
+
+异常值统计:
+noise_level: 173个异常值
+living_conditions: 62个异常值
+study_load: 165个异常值
+
+预处理完成，数据形状: (1100, 21)
+压力水平分布比例:
+stress_level
+0.0    33.909091
+2.0    33.545455
+1.0    32.545455
+Name: proportion, dtype: float64
+
+与压力水平相关性最高的10个特征:
+self_esteem               0.756195
+bullying                  0.751162
+sleep_quality             0.749068
+future_career_concerns    0.742619
+anxiety_level             0.736795
+depression                0.734379
+academic_performance      0.720922
+headache                  0.713484
+safety                    0.709602
+basic_needs               0.708968
+Name: stress_level, dtype: float64
+
+特征重要性排名:
+                         feature  importance
+21             physical_symptoms    0.106278
+5                 blood_pressure    0.091820
+24               academic_stress    0.088877
+20           mental_health_score    0.083315
+23          environmental_stress    0.078896
+6                  sleep_quality    0.059061
+12          academic_performance    0.053412
+16                social_support    0.042140
+11                   basic_needs    0.039636
+3                     depression    0.036698
+1                    self_esteem    0.036067
+18    extracurricular_activities    0.034629
+17                 peer_pressure    0.031598
+4                       headache    0.031004
+19                      bullying    0.030595
+0                  anxiety_level    0.029372
+14  teacher_student_relationship    0.027990
+22          social_support_index    0.024252
+15        future_career_concerns    0.023515
+10                        safety    0.018352
+
+选择的特征 (15个):
+['physical_symptoms', 'blood_pressure', 'academic_stress', 'mental_health_score', 'environmental_stress', 'sleep_quality', 'academic_performance', 'social_support', 'basic_needs', 'depression', 'self_esteem', 'extracurricular_activities', 'peer_pressure', 'headache', 'bullying']
+============================================================
+1. 逻辑回归模型
+============================================================
+准确率: 0.8818181818181818
+
+分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.90      0.85      0.88        74
+         1.0       0.86      0.93      0.89        72
+         2.0       0.89      0.86      0.88        74
+
+    accuracy                           0.88       220
+   macro avg       0.88      0.88      0.88       220
+weighted avg       0.88      0.88      0.88       220
+
+
+============================================================
+2. 随机森林模型
+============================================================
+准确率: 0.8954545454545455
+
+分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.95      0.85      0.90        74
+         1.0       0.88      0.93      0.91        72
+         2.0       0.86      0.91      0.88        74
+
+    accuracy                           0.90       220
+   macro avg       0.90      0.90      0.90       220
+weighted avg       0.90      0.90      0.90       220
+
+
+============================================================
+3. 梯度提升模型
+============================================================
+准确率: 0.8636363636363636
+
+分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.85      0.82      0.84        74
+         1.0       0.88      0.92      0.90        72
+         2.0       0.86      0.85      0.86        74
+
+    accuracy                           0.86       220
+   macro avg       0.86      0.86      0.86       220
+weighted avg       0.86      0.86      0.86       220
+
+
+============================================================
+4. 支持向量机模型
+============================================================
+准确率: 0.8863636363636364
+
+分类报告:
+              precision    recall  f1-score   support
+
+         0.0       0.92      0.82      0.87        74
+         1.0       0.89      0.92      0.90        72
+         2.0       0.85      0.92      0.88        74
+
+    accuracy                           0.89       220
+   macro avg       0.89      0.89      0.89       220
+weighted avg       0.89      0.89      0.89       220
+
+Logistic Regression 交叉验证平均准确率: 0.8873 (+/- 0.0238)
+Random Forest 交叉验证平均准确率: 0.8855 (+/- 0.0161)
+Gradient Boosting 交叉验证平均准确率: 0.8809 (+/- 0.0060)
+SVM 交叉验证平均准确率: 0.8755 (+/- 0.0148)
+随机森林超参数优化...
+Fitting 3 folds for each of 324 candidates, totalling 972 fits
+最佳参数: {'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 50}
+最佳交叉验证分数: 0.8773
+
+梯度提升超参数优化...
+Fitting 3 folds for each of 20 candidates, totalling 60 fits
+最佳参数: {'n_estimators': 100, 'min_samples_split': 5, 'min_samples_leaf': 1, 'max_depth': 3, 'learning_rate': 0.01}
+最佳交叉验证分数: 0.8829
+
+============================================================
+优化后模型性能
+============================================================
+优化后随机森林准确率: 0.8909
+优化后梯度提升准确率: 0.8955
+
+集成模型（投票分类器）准确率: 0.8955
+============================================================
+模型结果分析与解释
+============================================================
+
+最佳模型特征重要性:
+                       feature  importance
+0            physical_symptoms    0.126460
+3          mental_health_score    0.110294
+4         environmental_stress    0.105152
+1               blood_pressure    0.103275
+2              academic_stress    0.086304
+5                sleep_quality    0.067028
+6         academic_performance    0.054851
+8                  basic_needs    0.054157
+7               social_support    0.052927
+14                    bullying    0.049809
+10                 self_esteem    0.044444
+11  extracurricular_activities    0.039556
+12               peer_pressure    0.039485
+9                   depression    0.037777
+13                    headache    0.028479
+
+------------------------------------------------------------
+重要特征对压力水平的影响分析
+------------------------------------------------------------
+最重要的5个特征: ['physical_symptoms', 'mental_health_score', 'environmental_stress', 'blood_pressure', 'academic_stress']
+
+============================================================
+数据分析结论与建议
+============================================================
+
+主要发现:
+1. 最重要的压力预测因素:
+   - 焦虑水平(anxiety_level): 与压力水平正相关
+   - 抑郁程度(depression): 与压力水平正相关
+   - 睡眠质量(sleep_quality): 与压力水平负相关（睡眠质量越差，压力越大）
+   - 自我评价(self_esteem): 与压力水平负相关（自尊心越低，压力越大）
+   - 心理健康史(mental_health_history): 有心理健康史的学生压力更大
+
+2. 模型性能:
+   - 随机森林模型表现最佳，准确率达到89.09%
+   - 模型能有效区分低、中、高压力水平
+   - 特征工程创建的综合指标对模型预测有帮助
+
+3. 压力水平分布:
+   - 低压力水平: 33.9%
+   - 中压力水平: 32.5%
+   - 高压力水平: 33.5%
+
+建议:
+1. 学校干预措施:
+   - 重点关注焦虑和抑郁症状明显的学生
+   - 提供心理健康支持和咨询服务
+   - 改善睡眠卫生教育和支持
+
+2. 学术环境优化:
+   - 合理调整学业负担，避免过度压力
+   - 加强师生关系，提供更多学术支持
+   - 关注未来职业规划指导
+
+3. 社会支持系统:
+   - 鼓励学生参与课外活动，建立社交网络
+   - 提供同伴支持计划
+   - 创建安全、支持性的校园环境
+
+4. 早期预警系统:
+   - 利用模型建立学生压力预警系统
+   - 定期评估学生心理健康状况
+   - 对高风险学生进行针对性干预
+
+
+模型和结果已保存:
+- best_stress_model.pkl: 最佳模型
+- feature_importance.csv: 特征重要性
+- model_results.json: 模型评估结果
+
+进程已结束，退出代码为 0

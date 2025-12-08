@@ -1,0 +1,46 @@
+
+学生压力水平数据分析报告
+=====================
+
+分析概要:
+---------
+- 数据集: 843 行, 26 列
+- 目标变量: 压力类型 (Eustress/No_Stress/Distress)
+- 分析日期: 2025-12-05 17:20:41
+
+数据分布:
+---------
+Stress_Type
+Eustress     768
+No_Stress     43
+Distress      32
+
+关键发现:
+---------
+1. 压力类型分布: Eustress占大多数(91.1%)
+2. 最佳模型: K-Nearest Neighbors (准确率: 0.9763)
+3. 关键影响因素: Overall_Stress_Index, Academic_Stress_Index, Health_Index, Environment_Stress_Index, Social_Stress_Index
+
+模型性能比较:
+-------------
+                 Model  Accuracy  Precision   Recall  F1-Score  CV Accuracy (Mean)  CV Accuracy (Std)
+     Gradient Boosting  0.976331   0.977515 0.976331  0.976530            0.964427           0.006418
+   K-Nearest Neighbors  0.976331   0.976931 0.976331  0.974439            0.958474           0.014587
+               XGBoost  0.976331   0.977515 0.976331  0.976530            0.959686           0.010141
+         Random Forest  0.970414   0.971345 0.970414  0.967000            0.952564           0.014506
+Support Vector Machine  0.970414   0.971345 0.970414  0.967692            0.964427           0.010578
+   Logistic Regression  0.964497   0.965828 0.964497  0.960272            0.951374           0.014243
+
+业务建议:
+---------
+1. 建立压力监测系统，重点关注高Distress风险学生
+2. 针对睡眠问题、学业压力和社交孤立设计干预措施
+3. 提供差异化的心理健康支持服务
+4. 定期评估干预措施效果并持续优化
+
+文件输出:
+---------
+- 预处理数据: D:/Typora/Programs_python/20251205_StressLevelDataset/preprocessed_data.csv
+- 可视化图表: D:/Typora/Programs_python/20251205_StressLevelDataset/[1-13]_*.png
+- 训练模型: D:/Typora/Programs_python/20251205_StressLevelDataset/*_model.pkl
+- 优化模型: D:/Typora/Programs_python/20251205_StressLevelDataset/Optimized_Random_Forest_model.pkl

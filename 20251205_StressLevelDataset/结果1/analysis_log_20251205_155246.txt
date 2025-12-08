@@ -1,0 +1,95 @@
+================================================================================
+学生压力水平分析与预测模型
+开始时间: 2025-12-05 15:52:46
+================================================================================
+
+1. 数据概览
+----------------------------------------
+数据集形状: (1100, 21)
+特征数量: 21
+样本数量: 1100
+
+数据集列名:
+['anxiety_level', 'self_esteem', 'mental_health_history', 'depression', 'headache', 'blood_pressure', 'sleep_quality', 'breathing_problem', 'noise_level', 'living_conditions', 'safety', 'basic_needs', 'academic_performance', 'study_load', 'teacher_student_relationship', 'future_career_concerns', 'social_support', 'peer_pressure', 'extracurricular_activities', 'bullying', 'stress_level']
+
+数据类型:
+anxiety_level                   int64
+self_esteem                     int64
+mental_health_history           int64
+depression                      int64
+headache                        int64
+blood_pressure                  int64
+sleep_quality                   int64
+breathing_problem               int64
+noise_level                     int64
+living_conditions               int64
+safety                          int64
+basic_needs                     int64
+academic_performance            int64
+study_load                      int64
+teacher_student_relationship    int64
+future_career_concerns          int64
+social_support                  int64
+peer_pressure                   int64
+extracurricular_activities      int64
+bullying                        int64
+stress_level                    int64
+dtype: object
+
+前5行数据:
+   anxiety_level  self_esteem  ...  bullying  stress_level
+0             14           20  ...         2             1
+1             15            8  ...         5             2
+2             12           18  ...         2             1
+3             16           12  ...         5             2
+4             16           28  ...         5             1
+
+[5 rows x 21 columns]
+
+描述性统计:
+       anxiety_level  self_esteem  ...     bullying  stress_level
+count    1100.000000  1100.000000  ...  1100.000000   1100.000000
+mean       11.063636    17.777273  ...     2.617273      0.996364
+std         6.117558     8.944599  ...     1.530958      0.821673
+min         0.000000     0.000000  ...     0.000000      0.000000
+25%         6.000000    11.000000  ...     1.000000      0.000000
+50%        11.000000    19.000000  ...     3.000000      1.000000
+75%        16.000000    26.000000  ...     4.000000      2.000000
+max        21.000000    30.000000  ...     5.000000      2.000000
+
+[8 rows x 21 columns]
+
+
+================================================================================
+2. 数据清洗与预处理
+================================================================================
+
+缺失值检查:
+Empty DataFrame
+Columns: [缺失值数量, 缺失值百分比]
+Index: []
+
+重复值数量: 0
+
+异常值处理:
+  noise_level: 处理了 173 个异常值
+  living_conditions: 处理了 62 个异常值
+  study_load: 处理了 165 个异常值
+
+数据标准化:
+标准化了 20 个数值特征
+
+
+================================================================================
+3. 探索性数据分析
+================================================================================
+
+3.1 压力水平分布
+     压力水平  样本数量        百分比
+0  低压力(0)   373  33.909091
+1  中压力(1)   358  32.545455
+2  高压力(2)   369  33.545455
+
+3.2 特征相关性分析
+
+与压力水平相关性最高的10个特征:
